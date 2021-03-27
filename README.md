@@ -18,14 +18,12 @@ parent element), then pasting it where you want.
 ## Examples
 See how Scoped CSS works in practice, how we use it, how you may want to use it!
   
+### The basics
 1. Here's how you use scoped CSS. Add `class="scoped"` to your `<style>` element.
 2. Then use `\&` for all the CSS rules that you want to be scoped.
 ```html
 <div>
   <style class="scoped">
-    \& {
-      background: lightblue;
-    }
     \& p {
       color: navy;
     }
@@ -34,3 +32,24 @@ See how Scoped CSS works in practice, how we use it, how you may want to use it!
   <p> Scoped CSS fits some situations really well. </p>
 </div>
 ```
+Only **this `<p>` will show up as navy-colored the rest stay normal**.  
+Also, scoped CSS elements can still take on styles from non-scoped style sheets 
+if you have `p { font-size: 2em; }` for example.  
+  
+### Scoped CSS doesn't bleed!
+1. The "First H2" stays the default color.
+2. Only the "Second H2" get's the new color from our scoped CSS.
+```html
+<body>
+  <div>
+    <h2> First H2 </h2>
+  </div>
+  <div>
+    <style class="scoped">
+      \& h2 { color: firebrick; }
+    </style>
+    <h2> Second H2 </h2>
+  </div>
+</body>
+```
+
