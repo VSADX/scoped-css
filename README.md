@@ -15,6 +15,11 @@ from "bleeding" to other elements on your page.
 You can reuse your elements just by copying the scoped style element (including 
 parent element), then pasting it where you want.  
   
+## Live CDN link  
+```html
+<script src="https://cdn.jsdelivr.net/gh/VSADX/scoped-css@main/scoped-css.js" type="module"><script>
+```
+  
 ## Examples
 See how Scoped CSS works in practice, how we use it, how you may want to use it!
   
