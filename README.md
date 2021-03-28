@@ -17,7 +17,7 @@ parent element), then pasting it where you want.
   
 ## Live CDN link  
 ```html
-<script src="https://cdn.jsdelivr.net/gh/VSADX/scoped-css@main/scoped-css.js" type="module"><script>
+<script src="https://cdn.jsdelivr.net/gh/VSADX/scoped-css@main/scoped-css.js" type="module"></script>
 ```
   
 ## Examples
