@@ -1,4 +1,40 @@
 # Scoped CSS
+```html
+<body>
+  <main>
+    <section>
+      <h1> 
+        <small> Is there a <em> good </em> alternative to CSS frameworks? </small> 
+        Examining Scoped CSS
+      </h1>
+      <style class="scoped">
+        /* this targets the <small> inside the <section> */
+        \& small { 
+          display: block;
+          font-size: .5em;
+          opacity: .5;
+        }
+        /* this targets the <h1> inside the <section> */
+        \& h1 { font-size: 6em; }
+      </style>
+    </section>
+    <!-- ... here is another <section> in the document. this one *won't* be affected 
+         by the style element we saw earlier. `<style class="scoped">` can only see 
+         its exact parent + all its parent's children. --> 
+    <section>
+      <h2>
+        <small> Did you know? </small> 
+        Nearly <em> all </em> web frameworks have a version of scoped CSS.
+      </h2>
+      <p>
+        lorem125
+      </p>
+    </section>
+  </main>
+</body>
+```
+  
+## Tell me in plain english.
 🌌 **What is scoped CSS?**  
 It's a `<style>` element, inside your HTML file.  
   
@@ -27,38 +63,30 @@ parent element), then pasting it where you want.
 ## Examples
 See how Scoped CSS works in practice, how we use it, how you may want to use it!
   
-### The basics
+### How to use it.
 1. Here's how you use scoped CSS. Add `class="scoped"` to your `<style>` element.
 2. Then use `\&` for all the CSS rules that you want to be scoped.
 ```html
-<div>
-  <style class="scoped">
-    \& p {
-      color: navy;
-    }
-  </style>
-  <h2> Hello all! </h2>
-  <p> Scoped CSS fits some situations really well. </p>
-</div>
-```
-Only **this `<p>` will show up as navy-colored the rest stay normal**.  
-Also, scoped CSS elements can still take on styles from non-scoped style sheets 
-if you have `p { font-size: 2em; }` for example.  
-  
-### Scoped CSS doesn't bleed!
-1. The "First H2" stays the default color.
-2. Only the "Second H2" get's the new color from our scoped CSS.
-```html
-<body>
-  <div>
-    <h2> First H2 </h2>
-  </div>
-  <div>
+  <header>
     <style class="scoped">
-      \& h2 { color: firebrick; }
+      \& p a { 
+        color: blue; 
+      }
+      \& nav a { 
+        color: green; 
+      }
     </style>
-    <h2> Second H2 </h2>
-  </div>
-</body>
+    <p><a> Drawing Straws Art Studio </a></p>
+    <nav>
+      <a> Home </a> <a> About </a> <a> Contact </a> <a> Get Hired </a>
+    </nav>
+  </header>
+  <aside>
+    <h2> Our Socials </h2>
+    <!-- these "nav a" won't be green, since we used Scoped CSS earlier. -->
+    <nav>
+      <a> Instagram </a> <a> Facebook </a> <a> Twitter </a> <a> YouTube </a>
+    </nav> 
+  </aside>
 ```
 
