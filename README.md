@@ -1,7 +1,7 @@
 # Scoped CSS
+So what does "scoped CSS" mean?
 ```html
 <body>
-  <main>
     <section>
       <h1> 
         <small> Is there a <em> good </em> alternative to CSS frameworks? </small> 
@@ -18,6 +18,9 @@
         \& h1 { font-size: 6em; }
       </style>
     </section>
+```
+It means easier to create + maintain CSS.
+```html
     <!-- ... here is another <section> in the document. this one *won't* be affected 
          by the style element we saw earlier. `<style class="scoped">` can only see 
          its exact parent + all its parent's children. --> 
@@ -26,11 +29,7 @@
         <small> Did you know? </small> 
         Nearly <em> all </em> web frameworks have a version of scoped CSS.
       </h2>
-      <p>
-        lorem125
-      </p>
     </section>
-  </main>
 </body>
 ```
   
